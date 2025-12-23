@@ -1,31 +1,89 @@
 {
   "version": 2,
+  "name": "vipstudy-platform",
   "builds": [
     {
       "src": "*.html",
       "use": "@vercel/static"
     },
     {
-      "src": "courses/*.html",
+      "src": "*.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.js",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "*.md",
       "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/",
-      "dest": "/index.html"
+      "dest": "/INDEX.HTML"
     },
     {
-      "src": "/course/(.*)",
-      "dest": "/courses/$1.html"
+      "src": "/index.html",
+      "dest": "/INDEX.HTML"
     },
     {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))",
+      "src": "/english",
+      "dest": "/Full_Course_of_English_Pre._+_Mains_Recorded_ʀᴀɴɪ_ᴍᴀᴍ_ABHISHEK_SANJIT.html"
+    },
+    {
+      "src": "/achievers5",
+      "dest": "/ACHIEVERS BATCH  5.html"
+    },
+    {
+      "src": "/achievers3",
+      "dest": "/ACHIEVERS BATCH  3.0.html"
+    },
+    {
+      "src": "/crash1",
+      "dest": "/cash.html"
+    },
+    {
+      "src": "/crash2",
+      "dest": "/Crash_Course 2.html"
+    },
+    {
+      "src": "/ssc2025",
+      "dest": "/Practice Batch For SSC 2025 Exams.HTML"
+    },
+    {
+      "src": "/practice2025",
+      "dest": "/Rani_mam_Practice_Batch__2025_Exams___.html"
+    },
+    {
+      "src": "/vocabulary",
+      "dest": "/Samundramanthan Of Vocabulary_html.html"
+    },
+    {
+      "src": "/errors",
+      "dest": "/Topic Wise + Mixed Errors (Video + PDFs_.html"
+    },
+    {
+      "src": "/uclive",
+      "dest": "/UCLIVE.html"
+    },
+    {
+      "src": "/script.js",
+      "dest": "/script.js"
+    },
+    {
+      "src": "/style.css",
+      "dest": "/style.css"
+    },
+    {
+      "src": "/(.*\\.(html|css|js|png|jpg|jpeg|gif|svg|ico))",
       "dest": "/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/INDEX.HTML",
+      "status": 200
     }
   ],
   "headers": [
@@ -34,9 +92,24 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=3600"
+          "value": "public, max-age=3600, s-maxage=86400"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
         }
       ]
     }
-  ]
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
